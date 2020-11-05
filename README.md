@@ -8,7 +8,8 @@ Special
 
 -   automatically generate environment
 
-Support OS: Ubuntu
+Support OS: 
+  Ubuntu
 
 Install
 
@@ -28,3 +29,11 @@ GNU_TOOLCHAIN
 OPENOCD
 QEMU
 ```
+
+---
+
+# Reference
+
+freedom-e-sdk github: https://github.com/sifive/freedom-e-sdk
+
+sifive website: https://www.sifive.com/software
