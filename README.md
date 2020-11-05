@@ -14,6 +14,7 @@ Install
 
 ```
 make install
+source ~/.bashrc
 ```
 
 Uninstall
@@ -21,3 +22,9 @@ Uninstall
 make clean
 ```
 
+Modify e-sdk and other version(In Makefile line 3-5)
+```
+GNU_TOOLCHAIN
+OPENOCD
+QEMU
+```
