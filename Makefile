@@ -10,7 +10,7 @@ QEMU_FOLDER = ```echo ${QEMU} | sed 's/'.tar.gz'/''/g'```
 
 .PHONY: all install
 
-install: clean install_init install_gnu_toolchain install_openocd install_qemu install_freedom_e_sdk install_freedom_e_sdk_python
+install: clean install_init install_gnu_toolchain install_openocd install_qemu install_freedom_e_sdk install_var install_freedom_e_sdk_python
 
 install_init:
 	mkdir -p tools
@@ -37,6 +37,9 @@ install_freedom_e_sdk:
 	git clone --recursive https://github.com/sifive/freedom-e-sdk.git
 	cd freedom-e-sdk;git submodule update --init --recursive
 
+install_var:
+	echo "source ```pwd```/e_sdk_env.bash" >> ~/.bashrc
+
 install_freedom_e_sdk_python:
 	cd freedom-e-sdk;make pip-cache
 	echo "export FREEDOM_E_SDK_PIP_CACHE_PATH=```pwd```/freedom-e-sdk/pip-cache" >> e_sdk_env.bash
@@ -44,6 +47,9 @@ install_freedom_e_sdk_python:
 	echo "export FREEDOM_E_SDK_VENV_PATH=```pwd```/venv" >> e_sdk_env.bash
 	
 clean:
+	sed '/e_sdk_env/d' ~/.bashrc > tmp
+	cp tmp ~/.bashrc
+	rm -f tmp
 	rm -rf venv
 	rm -f e_sdk_env.bash
 	rm -rf tools
