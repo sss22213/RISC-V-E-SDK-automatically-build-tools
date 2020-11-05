@@ -7,3 +7,17 @@ Special
 -   automatically download and build e-sdk
 
 -   automatically generate environment
+
+Support OS: Ubuntu
+
+Install
+
+```
+make install
+```
+
+Uninstall
+```
+make clean
+```
+
