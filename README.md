@@ -16,7 +16,7 @@ Install
 ```
 make install
 source ~/.bashrc
-reboot
+sudo reboot
 ```
 
 Uninstall
